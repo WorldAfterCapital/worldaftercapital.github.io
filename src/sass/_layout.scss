@@ -21,15 +21,21 @@ $content-width: 58.75rem;
   width: 100%;
 
   &.home {
-    transition: $t-bg;
+    transition: $t-to-page-bg;
+  }
+
+  &.page {
+    transition: $t-to-home-bg;
   }
 }
 
+.animating-to-home-layout .colored-background.page, .colored-background.home {
+  transform: none;
+}
 
 .animating-to-page-layout .colored-background.home, .colored-background.page {
   transform: translatey(-100%) translateY(23.125rem);
 }
-
 
 @media screen and (max-width: $phone-landscape-max) {
   .content {

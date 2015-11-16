@@ -1,17 +1,29 @@
-$s0: 0.3s;
-$t1: 0.3s;
-$s1: 0.3s;
+$speed: .3s;
+$break: .1s;
+$t1: ($break + $speed);
+$t2: (2 * $t1);
 
-$t-book: $s0 ease transform;
-$t-text: $s0 ease opacity;
-$t-bg: $s1 $t1 ease transform;
-$t-site-title: $s1 $t1 ease opacity;
+$t-to-page-book: $speed ease transform;
+$t-to-page-book-text: $speed ease opacity;
+$t-to-page-page-content: $speed ease opacity;
+$t-to-page-bg: $speed $t1 ease transform;
+$t-to-page-site-title: $speed $t1 ease opacity;
 
-$a-fade-in: fade-in $s0 ease;
-$a-fade-in-up: fade-in-up $s0 ease;
+$t-to-home-book: $speed $t2 ease transform;
+$t-to-home-book-text: $speed $t2 ease opacity;
+$t-to-home-page-content: $speed ease opacity, $speed ease transform;
+$t-to-home-bg: $speed $t1 ease transform;
+$t-to-home-site-title: $speed $t1 ease opacity;
+
+$a-fade-in: fade-in $speed ease;
+$a-fade-in-up: fade-in-up $speed ease;
 
 @keyframes fade-in {
     0% {
+        opacity: 0;
+    }
+
+    40% {
         opacity: 0;
     }
 

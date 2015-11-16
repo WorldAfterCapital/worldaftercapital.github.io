@@ -44,7 +44,7 @@
     this.transitionEndEvent = _whichTransitionEndEvent();
     this.inAnimation = false;
     this.body = document.getElementsByTagName('body')[0];
-    console.log(this.links);
+    console.log(this.finalElement)
 
     if (!this.finalElement) {
       throw new AnimationException('No element with ID ' + finalElementId);
@@ -58,6 +58,7 @@
   }
 
   PageAnimation.prototype.onTransitionEnd = function(e) {
+    console.log(e);
     window.location = this.targetUrl;
   };
 
@@ -72,7 +73,7 @@
       }
 
       this.targetUrl = e.target.href;
-      this.body.className = 'animating-to-page-layout';
+      this.body.className = this.settings.bodyClass;
     }
   };
 

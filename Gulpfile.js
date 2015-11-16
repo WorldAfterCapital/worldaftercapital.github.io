@@ -3,6 +3,7 @@
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var cache = require('gulp-cached');
+var concat = require('gulp-concat');
 var fs = require('fs');
 var gulp = require('gulp');
 var handlebars = require('gulp-compile-handlebars');
@@ -62,7 +63,16 @@ gulp.task('sass', ['sass:lint', 'sass:build']);
 gulp.task('js:build', function() {
   gulp.src('src/js/**/*.js')
     .pipe(plumber())
-    // .pipe(uglify())
+    .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('js:optimized', function() {
+  gulp.src('src/js/**/*.js')
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
+      .pipe(concat('app.js'))
+      .pipe(uglify())
+    .pipe(sourcemaps.write('dist/js'))
     .pipe(gulp.dest('dist/js'));
 });
 
@@ -141,7 +151,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('build', ['sass', 'images', 'fonts', 'js', 'templates']);
-gulp.task('build:optimized', ['sass:optimized', 'images:optimized', 'fonts', 'js', 'templates:optimized']);
+gulp.task('build:optimized', ['sass:optimized', 'images:optimized', 'fonts', 'js:optimized', 'templates:optimized']);
 
 gulp.task('deploy', ['build:optimized'], function() {
   gulp.src('')

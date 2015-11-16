@@ -4,7 +4,6 @@
   position: absolute;
   top: 0;
   transform-origin: 0% 0%;
-  transition: $t-book;
   width: 50%;
   z-index: 10;
 
@@ -35,7 +34,7 @@
       text-align: center;
       top: 50%;
       transform: translate(-50%, -50%);
-      transition: $t-text;
+      transition: $t-to-page-book-text;
 
       .book-title {
         margin-bottom: 2.5rem;
@@ -51,20 +50,70 @@
   opacity: 0;
   position: absolute;
   top: 0;
-  transition: $t-site-title;
+  transition: $t-to-page-site-title;
   vertical-align: middle;
   z-index: 10;
 }
 
-.animating-to-page-layout .home .book .text-content, .page .book .text-content {
+// Transitions from home
+
+.home {
+  .book {
+    transition: $t-to-page-book;
+
+    .text-content {
+      transition: $t-to-page-book-text;
+    }
+  }
+
+  .site-title {
+    transition: $t-to-page-site-title;
+  }
+}
+
+// Transitions from page
+
+.page {
+  .book {
+    transition: $t-to-home-book;
+
+    .text-content {
+      transition: $t-to-home-book-text;
+    }
+  }
+
+  .site-title {
+    transition: $t-to-home-site-title;
+  }
+}
+
+// Animating to page
+
+.animating-to-page-layout .home .book .text-content,
+.page .book .text-content {
   opacity: 0;
 }
 
-.animating-to-page-layout .home .book, .page .book {
+.animating-to-page-layout .home .book,
+.page .book {
   transform: scale(.087);
 }
 
-.animating-to-page-layout .home .site-title, .page .site-title {
+.animating-to-page-layout .home .site-title,
+.page .site-title {
   opacity: 1;
 }
 
+// Animating to home
+
+.animating-to-home-layout .page .book {
+  transform: scale(1);
+}
+
+.animating-to-home-layout .page .site-title {
+  opacity: 0;
+}
+
+.animating-to-home-layout .page .book .text-content {
+  opacity: 1;
+}

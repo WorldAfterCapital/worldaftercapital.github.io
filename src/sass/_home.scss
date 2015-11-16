@@ -17,7 +17,8 @@ $book-aspect-ratio: 1.263157895;
     }
 
     p {
-      transition: $t-text;
+      transition: $t-to-page-page-content;
+      animation: $a-fade-in
     }
   }
 
