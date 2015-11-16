@@ -1,0 +1,67 @@
+// Font weights
+$regular: 400;
+$thin: 300;
+
+$display: 'Playfair Display', serif;
+$sans: 'Roboto', Helvetica, Arial, sans-serif;
+$slab: 'Oswald', Helvetica, Arial, sans-serif;
+
+h1, %h1 {
+  font-family: $display;
+  font-size: 2rem;
+  font-weight: $regular;
+  line-height: 1.5;
+
+  &.book-title {
+    font-size: 4.5rem;
+  }
+}
+
+h2, %h2 {
+  &.author {
+    font-family: $slab;
+    font-weight: $thin;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+}
+
+h3, %h3 {
+  font-family: $display;
+  font-size: 1.5rem;
+}
+
+h4, %h4 {
+  font-family: $slab;
+  font-weight: $regular;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+h5, %h5 {
+  @extend %h4;
+  font-weight: $thin;
+  text-transform: none;
+}
+
+p, .p {
+  font-size: 1rem;
+  line-height: 2;
+}
+
+strong {
+  font-weight: $regular;
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  h1, %h1 {
+    font-size: 1.75rem;
+  }
+
+  h4, %h4 {
+    font-size: 1.5rem;
+  }
+}

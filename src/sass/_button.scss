@@ -1,0 +1,30 @@
+.button {
+  @extend %h4;
+  display: block;
+
+  &.yellow {
+    color: $yellow;
+  }
+
+  &.blue {
+    color: $blue;
+  }
+
+  &:after {
+    content: ' ';
+    background-size: 0.875rem 0.875rem;
+    background-position: center center;
+    margin-left: 1rem;
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+  }
+
+  &.down:after {
+    background-image: url('/img/arrow-down.svg');
+  }
+
+  &.right:after {
+    background-image: url('/img/arrow-right.svg');
+  }
+}

@@ -1,0 +1,44 @@
+$content-width: 58.75rem;
+
+.content {
+  @include clearfix;
+  margin: 0 auto;
+  max-width: $content-width;
+  width: 90%;
+  position: relative;
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+}
+
+.colored-background {
+  background-color: $blue;
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+
+  &.home {
+    transition: $t-bg;
+  }
+}
+
+
+.animating-to-page-layout .colored-background.home, .colored-background.page {
+  transform: translatey(-100%) translateY(23.125rem);
+}
+
+
+@media screen and (max-width: $phone-landscape-max) {
+  .content {
+    padding: 0;
+    width: 100%;
+  }
+
+  section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}

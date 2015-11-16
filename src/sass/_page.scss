@@ -1,0 +1,57 @@
+.colored-background.page {
+  position: absolute;
+}
+
+.main.page {
+  padding: 5rem 0;
+
+  .page-content {
+    padding-left: 15rem;
+    padding-right: 5rem;
+    position: relative;
+
+    p {
+      margin-bottom: 2rem;
+      animation: $a-fade-in-up;
+    }
+
+    h1 {
+      animation: $a-fade-in;
+    }
+  }
+
+  .floating {
+    float: left;
+    width: 28.75rem;
+    padding: 10rem 6.25rem 5.625rem 0;
+    margin-left: -15rem;
+    animation: $a-fade-in-up;
+    position: relative;
+
+    i {
+      background-image: url('/img/albert-wenger.jpg');
+      background-size: cover;
+      background-position: center center;
+      display: block;
+      height: 16.25rem;
+      width: 100%;
+    }
+
+    .links {
+      position: absolute;
+      display: block;
+      transform: translateY(100%);
+
+      li {
+        margin-bottom: 1.25rem;
+      }
+    }
+  }
+
+
+  h1 {
+    color: $white;
+    margin-top: 9.125rem;
+    margin-bottom: 6.25rem;
+  }
+}

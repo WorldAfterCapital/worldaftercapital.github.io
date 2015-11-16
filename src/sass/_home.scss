@@ -1,0 +1,36 @@
+$book-width: 28.75rem;
+$book-aspect-ratio: 1.263157895;
+
+.main.home {
+  padding: 5rem 0;
+
+  .page-content {
+    box-sizing: border-box;
+    color: $white;
+    margin-left: 50%;
+    padding: 0 5rem 0 5.625rem;
+    position: relative;
+    width: 50%;
+
+    nav {
+      margin-bottom: 7rem;
+    }
+
+    p {
+      transition: $t-text;
+    }
+  }
+
+  .button {
+    margin-top: 5rem;
+  }
+
+  .lead {
+    @extend %h3;
+  }
+}
+
+.animating-to-page-layout .page-content p {
+  opacity: 0;
+}
+

@@ -1,0 +1,33 @@
+$s0: 0.3s;
+$t1: 0.3s;
+$s1: 0.3s;
+
+$t-book: $s0 ease transform;
+$t-text: $s0 ease opacity;
+$t-bg: $s1 $t1 ease transform;
+$t-site-title: $s1 $t1 ease opacity;
+
+$a-fade-in: fade-in $s0 ease;
+$a-fade-in-up: fade-in-up $s0 ease;
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}

@@ -1,0 +1,70 @@
+.book {
+  left: 0;
+  padding-right: .625rem;
+  position: absolute;
+  top: 0;
+  transform-origin: 0% 0%;
+  transition: $t-book;
+  width: 50%;
+  z-index: 10;
+
+  > .inner {
+    background-color: $yellow;
+    box-shadow: 0 0 2.5rem rgba($black, 0.5);
+    display: block;
+    height: 100%;
+    padding-bottom: ($book-aspect-ratio *100%);
+    position: relative;
+    width: 100%;
+
+    &:after {
+      background-color: rgba($black, 0.1);
+      content: ' ';
+      display: block;
+      height: 100%;
+      left: 1.875rem;
+      position: absolute;
+      top: 0;
+      width: .625rem;
+    }
+
+    .text-content {
+      left: 50%;
+      opacity: 1;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: $t-text;
+
+      .book-title {
+        margin-bottom: 2.5rem;
+      }
+    }
+  }
+}
+
+.site-title {
+  color: $white;
+  left: 5rem;
+  line-height: 3rem;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: $t-site-title;
+  vertical-align: middle;
+  z-index: 10;
+}
+
+.animating-to-page-layout .home .book .text-content, .page .book .text-content {
+  opacity: 0;
+}
+
+.animating-to-page-layout .home .book, .page .book {
+  transform: scale(.087);
+}
+
+.animating-to-page-layout .home .site-title, .page .site-title {
+  opacity: 1;
+}
+

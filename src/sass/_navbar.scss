@@ -1,0 +1,23 @@
+nav {
+  @extend %h5;
+  box-sizing: border-box;
+  color: $white;
+  height: 3.125rem;
+  padding: .8125rem 0 .6875rem;
+  line-height: 1.5rem;
+  width: 100%;
+
+  ul {
+    li {
+      display: inline-block;
+      float: left;
+      margin-right: 2.5rem;
+    }
+
+    a {
+      &:hover, .selected {
+        color: $yellow;
+      }
+    }
+  }
+}
