@@ -1,5 +1,5 @@
-$speed: .3s;
-$break: .1s;
+$speed: .5s;
+$break: -.2s;
 $t1: ($break + $speed);
 $t2: (2 * $t1);
 
@@ -20,10 +20,6 @@ $a-fade-in-up: fade-in-up $speed ease;
 
 @keyframes fade-in {
     0% {
-        opacity: 0;
-    }
-
-    40% {
         opacity: 0;
     }
 
