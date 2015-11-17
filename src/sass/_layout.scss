@@ -9,6 +9,7 @@ $content-width: 58.75rem;
 }
 
 .main {
+  padding: 5rem 0;
   position: relative;
   z-index: 2;
 }
@@ -20,7 +21,7 @@ $content-width: 58.75rem;
   height: 100%;
   width: 100%;
 
-  &.home {
+  &.home, &.talks {
     transition: $t-to-page-bg;
   }
 
@@ -29,11 +30,16 @@ $content-width: 58.75rem;
   }
 }
 
-.animating-to-home-layout .colored-background.page, .colored-background.home {
+.animating-to-talks-layout .colored-background.page,
+.animating-to-home-layout .colored-background.page,
+.colored-background.talks,
+.colored-background.home {
   transform: none;
 }
 
-.animating-to-page-layout .colored-background.home, .colored-background.page {
+.animating-to-page-layout .colored-background.home,
+.animating-to-page-layout .colored-background.talks,
+.colored-background.page {
   transform: translatey(-100%) translateY(23.125rem);
 }
 

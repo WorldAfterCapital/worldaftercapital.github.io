@@ -30,50 +30,69 @@
     }
   }
 
-  function PageAnimation(finalElementId, options) {
+  function _getTargetPath(e) {
+    var url;
+    if (e.target.href) {
+      url = e.target.href;
+    }
+    for (var i = 0; i < e.path.length; i++) {
+      if (e.path[i].href) {
+        url = e.path[i].href;
+      }
+    }
+    var path = url.replace(window.location.origin, '');
+    console.log(url, path);
+    return path;
+  }
+
+  function PageAnimation(urlRegex, finalElementId, bodyClass, options) {
     var opts = options || {};
+
     this.settings = {
-      linkClass: opts.linkClass || 'animate',
-      bodyClass: opts.bodyClass || 'animating-to-page-layout',
       beforeAnimate: opts.beforeAnimate || null,
-      timeout: 3000,
+      timeout: opts.timeout || 3000,
     };
 
+    this.bodyClass = bodyClass;
     this.finalElement = document.getElementById(finalElementId);
-    this.links = document.getElementsByClassName(this.settings.linkClass);
+    this.links = document.getElementsByTagName('a');
     this.transitionEndEvent = _whichTransitionEndEvent();
     this.inAnimation = false;
     this.body = document.getElementsByTagName('body')[0];
-    console.log(this.finalElement)
+    this.reg = new RegExp(urlRegex);
 
     if (!this.finalElement) {
       throw new AnimationException('No element with ID ' + finalElementId);
     }
 
     if (this.links.length === 0) {
-      throw new AnimationException('No links found with class ' + this.settings.linkClass);
+      throw new AnimationException('No links found in page.');
     }
 
     return this;
   }
 
   PageAnimation.prototype.onTransitionEnd = function(e) {
-    console.log(e);
-    window.location = this.targetUrl;
+    if (this.inAnimation) {
+      console.log(e);
+      window.location = this.targetUrl;
+    }
   };
 
   PageAnimation.prototype.onClick = function(e) {
     e.preventDefault();
-    if (!this.inAnimation) {
+    var path = _getTargetPath(e);
+    console.log(path, this.reg, this.reg.test(path));
+    if (!this.inAnimation && this.reg.test(path)) {
       this.inAnimation = true;
 
       if (this.settings.beforeAnimate) {
-        console.log('running');
         this.settings.beforeAnimate();
       }
 
-      this.targetUrl = e.target.href;
-      this.body.className = this.settings.bodyClass;
+      this.targetUrl = path;
+      this.body.className = this.bodyClass;
+      return;
     }
   };
 

@@ -10,6 +10,7 @@
   > .inner {
     background-color: $yellow;
     box-shadow: 0 0 2.5rem rgba($black, 0.5);
+    border-radius: 3px;
     display: block;
     height: 100%;
     padding-bottom: ($book-aspect-ratio *100%);
@@ -17,6 +18,7 @@
     width: 100%;
 
     &:after {
+      transform-origin: 0 0;
       background-color: rgba($black, 0.1);
       content: ' ';
       display: block;
@@ -24,10 +26,12 @@
       left: 1.875rem;
       position: absolute;
       top: 0;
-      width: .625rem;
+      transform: $t-to-page-book;
+      width: .5rem;
     }
 
     .text-content {
+      color: $black;
       left: 50%;
       opacity: 1;
       position: absolute;
@@ -61,6 +65,10 @@
   .book {
     transition: $t-to-page-book;
 
+    > .inner:after {
+      transition: $t-to-page-book;
+    }
+
     .text-content {
       transition: $t-to-page-book-text;
     }
@@ -73,9 +81,13 @@
 
 // Transitions from page
 
-.page {
+.page, .talks {
   .book {
     transition: $t-to-home-book;
+
+    > .inner:after {
+      transition: $t-to-home-book;
+    }
 
     .text-content {
       transition: $t-to-home-book-text;
@@ -88,32 +100,44 @@
 }
 
 // Animating to page
-
-.animating-to-page-layout .home .book .text-content,
-.page .book .text-content {
-  opacity: 0;
-}
-
+.animating-to-talks-layout .home .book,
 .animating-to-page-layout .home .book,
+.talks .book,
 .page .book {
   transform: scale(.087);
+
+  > .inner:after {
+    border-radius: 3px;
+    transform: translateX(3.125rem) scaleX(2.8);
+  }
+
+  .text-content {
+    opacity: 0;
+  }
 }
 
+.animating-to-talks-layout .home .site-title,
 .animating-to-page-layout .home .site-title,
+.talks .site-title,
 .page .site-title {
   opacity: 1;
 }
 
 // Animating to home
-
+.animating-to-home-layout .talks .book,
 .animating-to-home-layout .page .book {
   transform: scale(1);
+
+  > .inner:after {
+    transform: none;
+  }
+
+  .text-content {
+    opacity: 1;
+  }
 }
 
+.animating-to-home-layout .talks .site-title,
 .animating-to-home-layout .page .site-title {
   opacity: 0;
-}
-
-.animating-to-home-layout .page .book .text-content {
-  opacity: 1;
 }

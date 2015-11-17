@@ -1,0 +1,23 @@
+{{#extend "base"}}
+{{#content "main" mode="prepend"}}
+<div id="bg" class="colored-background page"></div>
+<div class="main page">
+    <div class="content">
+        {{#block "navbar"}}{{/block}}
+        <div class="page-content">
+            <div class="floating" id="floating" >
+                {{#block "floating"}}{{/block}}
+                <ul class="links">
+                    {{#block "links"}}{{/block}}
+                </ul>
+            </div>
+            <h2>{{#block "title"}}{{/block}}</h2>
+
+            {{#block "content"}}{{/block}}
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/pageanimation.js"></script>
+<script type="text/javascript" src="/js/page.js"></script>
+{{/content}}
+{{/extend}}

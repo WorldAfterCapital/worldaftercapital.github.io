@@ -17,6 +17,7 @@ $t-to-home-site-title: $speed $t1 ease opacity;
 
 $a-fade-in: fade-in $speed ease;
 $a-fade-in-up: fade-in-up $speed ease;
+$a-fade-to-yellow: fade-to-yellow $speed ease;
 
 @keyframes fade-in {
     0% {
@@ -37,5 +38,15 @@ $a-fade-in-up: fade-in-up $speed ease;
     100% {
         opacity: 1;
         transform: none;
+    }
+}
+
+@keyframes fade-to-yellow {
+    0% {
+        color: white;
+    }
+
+    100% {
+        color: yellow;
     }
 }

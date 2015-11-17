@@ -1,13 +1,13 @@
+$yt-aspect-ratio: .5625;
+
 .colored-background.page {
   position: absolute;
 }
 
 .main.page {
-  padding: 5rem 0;
 
   .page-content {
-    padding-left: 15rem;
-    padding-right: 5rem;
+    padding: 6.875rem 5rem 0 15rem;
     position: relative;
 
     p {
@@ -16,10 +16,10 @@
       transition: $t-to-home-page-content;
     }
 
-    h1 {
+    h2 {
       color: $white;
-      margin-top: 9.125rem;
       margin-bottom: 6.25rem;
+      margin-top: 2.5rem;
       animation: $a-fade-in;
       transition: $t-to-home-page-content;
     }
@@ -28,7 +28,7 @@
   .floating {
     float: left;
     width: 28.75rem;
-    padding: 10rem 6.25rem 5.625rem 0;
+    padding: 0 6.25rem 5.625rem 0;
     margin-left: -15rem;
     animation: $a-fade-in-up;
     transition: $t-to-home-page-content;
@@ -38,9 +38,27 @@
       background-image: url('/img/albert-wenger.jpg');
       background-size: cover;
       background-position: center center;
+      box-shadow: 0 0 .625rem rgba($black, .5);
       display: block;
       height: 16.25rem;
       width: 100%;
+    }
+
+    .video {
+      background-color: $black;
+      padding-bottom: (100% * $yt-aspect-ratio);
+      width: 100%;
+      position: relative;
+
+      iframe {
+        box-shadow: 0 0 .625rem rgba($black, .5);
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 10px;
+        top: 0;
+        width: 100%;
+      }
     }
 
     .links {
@@ -55,13 +73,15 @@
   }
 }
 
+.animating-to-page-layout,
+.animating-to-talks-layout,
 .animating-to-home-layout {
   .main.page {
     .floating, .page-content p {
       transform: translateY(3rem);
       opacity: 0;
     }
-    .page-content h1 {
+    .page-content h2 {
       opacity: 0;
     }
   }

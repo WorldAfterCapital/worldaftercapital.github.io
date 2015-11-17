@@ -1,0 +1,58 @@
+$yt-aspect-ratio: .5625;
+
+.main.talks {
+  padding: 5rem 0;
+
+  .page-content {
+    padding-top: 7rem;
+  }
+
+  .talk {
+    animation: $a-fade-in-up;
+    color: $white;
+    position: relative;
+    padding-bottom: (50% * $yt-aspect-ratio);
+    margin-bottom: 5rem;
+    transition: $t-to-home-page-content;
+
+    .video {
+      background-color: $black;
+      padding-bottom: (50% * $yt-aspect-ratio);
+      position: absolute;
+      left: 0;
+      width: 50%;
+
+      iframe {
+        box-shadow: 0 0 .625rem rgba($black, .5);
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 10px;
+        top: 0;
+        width: 100%;
+      }
+    }
+
+    .text {
+      position: absolute;
+      left: 0;
+      top: 0;
+      left: 50%;
+      padding: 0 5rem 0 5.625rem;
+    }
+
+    h2 {
+      margin-bottom: 2.5rem;
+    }
+
+    .button {
+      margin-top: 1.25rem;
+    }
+  }
+}
+
+.animating-to-home-layout .talk,
+.animating-to-page-layout .talk {
+  opacity: 0;
+  transform: translateY(3rem);
+}

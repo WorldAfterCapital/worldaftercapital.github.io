@@ -1,16 +1,34 @@
-<nav>
+<nav class="active-{{ active-class }}">
+    <a href="{{ book-link }}" class="{{ book-class }}">
+        <div class="book" id="book">
+            <div class="inner">
+                <div class="text-content">
+                    <h1 class="book-title">
+                        World After Capital
+                    </h1>
+                    <h2 class="author">Albert Wenger</h2>
+                </div>
+            </div>
+        </div>
+    </a>
+    <h3 class="site-title">
+        <a href="{{ book-link }}" class="{{ book-class }}">World After Capital</a>
+    </h3>
     <ul>
         <li>
-            <a class="animate" href="/author">Author</a>
+            <a class="home-link" href="/">Home</a>
         </li>
         <li>
-            <a class="animate" href="#">Ideas</a>
+            <a class="author-link" href="/author">Author</a>
         </li>
+        {{!-- <li>
+            <a class="ideas-link" href="#">Ideas</a>
+        </li> --}}
         <li>
-            <a class="animate" href="#">Talks</a>
+            <a class="talks-link" href="/talks">Talks</a>
         </li>
-        <li>
-            <a class="animate" href="#">FAQ</a>
-        </li>
+        {{!-- <li>
+            <a class="faq-link" href="#">FAQ</a>
+        </li> --}}
     </ul>
 </nav>

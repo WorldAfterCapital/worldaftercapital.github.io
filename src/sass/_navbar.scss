@@ -3,11 +3,13 @@ nav {
   box-sizing: border-box;
   color: $white;
   height: 3.125rem;
-  padding: .8125rem 0 .6875rem;
   line-height: 1.5rem;
   width: 100%;
 
   ul {
+    margin-left: 50%;
+    padding: .8125rem 0 .6875rem 5.625rem;
+
     li {
       display: inline-block;
       float: left;
@@ -15,9 +17,20 @@ nav {
     }
 
     a {
-      &:hover, .selected {
+      transition: 0.4s ease color;
+      animation: $a-fade-to-yellow;
+
+      &:active, &:hover, .selected {
         color: $yellow;
       }
     }
   }
+
+  // Highlight links
+  @each $page in author, ideas, talks, faq, home {
+    &.active-#{$page} .#{$page}-link {
+      color: $yellow;
+    }
+  }
+
 }

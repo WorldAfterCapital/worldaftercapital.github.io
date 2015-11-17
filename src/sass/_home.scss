@@ -2,13 +2,12 @@ $book-width: 28.75rem;
 $book-aspect-ratio: 1.263157895;
 
 .main.home {
-  padding: 5rem 0;
 
   .page-content {
     box-sizing: border-box;
     color: $white;
     margin-left: 50%;
-    padding: 0 5rem 0 5.625rem;
+    padding: 6rem 5rem 0 5.625rem;
     position: relative;
     width: 50%;
 
@@ -31,6 +30,7 @@ $book-aspect-ratio: 1.263157895;
   }
 }
 
+.animating-to-talks-layout .page-content p,
 .animating-to-page-layout .page-content p {
   opacity: 0;
 }

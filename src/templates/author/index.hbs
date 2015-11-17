@@ -1,26 +1,21 @@
-{{#extend "base"}}
-{{#content "main" mode="prepend"}}
-<div id="bg" class="colored-background page"></div>
-<div class="main page">
-    <div class="content">
-        {{> book url="/" class="animate-home" }}
-        <div class="page-content">
-            <div class="floating">
-                <i></i>
-                <ul class="links">
-                    <li><a class="button right blue" href="#">Personal Website</a></li>
-                    <li><a class="button right blue" href="#">Twitter</a></li>
-                </ul>
-            </div>
-            {{> navbar }}
-            <h1>Albert Wenger</h1>
-            <p>Albert Wenger is a partner at Union Square Ventures (USV), a New York-based early stage VC firm focused on investing in disruptive networks. USV portfolio companies include: Twitter, Tumblr, Foursquare, Etsy, Kickstarter and Shapeways. His wife Susan Danziger co-founded and runs Ziggeo. Together, they have three wonderful children.</p>
-            <p>Before joining USV, Albert was the president of del.icio.us through the company’s sale to Yahoo. He previously founded or co-founded five companies, including a management consulting firm (in Germany), a hosted data analytics company, a technology subsidiary for Telebanc (now E*Tradebank), an early stage investment firm, and most recently (with his wife), DailyLit, a service for reading books by email or RSS.</p>
-            <p>Albert graduated summa cum laude from Harvard College in economics and computer science and holds a Ph.D. in Information Technology from MIT.</p>
-        </div>
-    </div>
-</div>
-<script type="text/javascript" src="/js/pageanimation.js"></script>
-<script type="text/javascript" src="/js/page.js"></script>
+{{#extend "page" active-class="author"}}
+
+{{#content "navbar" }}
+{{> navbar active-class="author" book-link="/" }}
+{{/content }}
+
+{{#content "floating"}}<i></i>{{/content}}
+
+{{#content "links"}}
+<li><a class="button right blue" href="#">Personal Website {{> arrow-right.svg }}</a></li>
+<li><a class="button right blue" href="#">Twitter {{> arrow-right.svg }}</a></li>
+{{/content}}
+
+{{#content "title" }}Albert Wenger{{/content}}
+
+{{#content "content" mode="prepend"}}
+<p>Albert Wenger is a partner at Union Square Ventures (USV), a New York-based early stage VC firm focused on investing in disruptive networks. USV portfolio companies include: Twitter, Tumblr, Foursquare, Etsy, Kickstarter and Shapeways. His wife Susan Danziger co-founded and runs Ziggeo. Together, they have three wonderful children.</p>
+<p>Before joining USV, Albert was the president of del.icio.us through the company’s sale to Yahoo. He previously founded or co-founded five companies, including a management consulting firm (in Germany), a hosted data analytics company, a technology subsidiary for Telebanc (now E*Tradebank), an early stage investment firm, and most recently (with his wife), DailyLit, a service for reading books by email or RSS.</p>
+<p>Albert graduated summa cum laude from Harvard College in economics and computer science and holds a Ph.D. in Information Technology from MIT.</p>
 {{/content}}
 {{/extend}}

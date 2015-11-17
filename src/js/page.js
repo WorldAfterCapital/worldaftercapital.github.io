@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var anim = new PageAnimation('book', {
-    bodyClass: 'animating-to-home-layout',
-    linkClass: 'animate-home',
-  }).enable();
+  var homeAnimation = new PageAnimation(/^\/$/, 'book', 'animating-to-home-layout').enable();
+  var talksAnimation = new PageAnimation(/^\/talks$/, 'bg', 'animating-to-talks-layout').enable();
+  var pageAnimation = new PageAnimation(/^\/(author|ideas|faq|talks\/.+)$/, 'floating', 'animating-to-page-layout').enable();
 });
