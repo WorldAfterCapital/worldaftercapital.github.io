@@ -25,8 +25,8 @@ h2, %h2 {
 
   &.author {
     font-family: $slab;
-    font-weight: $thin;
     font-size: 1.5rem;
+    font-weight: $thin;
     line-height: 1.5;
   }
 }
@@ -39,10 +39,10 @@ h3, %h3 {
 
 h4, %h4 {
   font-family: $slab;
-  font-weight: $regular;
   font-size: 1rem;
-  line-height: 1.5;
+  font-weight: $regular;
   letter-spacing: 1px;
+  line-height: 1.5;
   text-transform: uppercase;
 }
 

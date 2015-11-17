@@ -8,45 +8,48 @@ $t-to-page-book-text: $speed ease opacity;
 $t-to-page-page-content: $speed ease opacity;
 $t-to-page-bg: $speed $t1 ease transform;
 $t-to-page-site-title: $speed $t1 ease opacity;
+$t-to-page-floating: $speed ease opacity;
 
 $t-to-home-book: $speed $t2 ease transform;
 $t-to-home-book-text: $speed $t2 ease opacity;
 $t-to-home-page-content: $speed ease opacity, $speed ease transform;
+$t-to-home-page-content: $speed ease opacity, $speed ease transform;
 $t-to-home-bg: $speed $t1 ease transform;
 $t-to-home-site-title: $speed $t1 ease opacity;
+$t-to-home-floating: $speed ease opacity;
 
 $a-fade-in: fade-in $speed ease;
 $a-fade-in-up: fade-in-up $speed ease;
 $a-fade-to-yellow: fade-to-yellow $speed ease;
 
 @keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-in-up {
-    0% {
-        opacity: 0;
-        transform: translateY(3rem);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
 
-    100% {
-        opacity: 1;
-        transform: none;
-    }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @keyframes fade-to-yellow {
-    0% {
-        color: white;
-    }
+  0% {
+    color: $white;
+  }
 
-    100% {
-        color: yellow;
-    }
+  100% {
+    color: $yellow;
+  }
 }

@@ -5,3 +5,5 @@ linters:
     style: 'long'
   SingleLinePerSelector:
     enabled: false
+  SelectorDepth:
+    max_depth: 4

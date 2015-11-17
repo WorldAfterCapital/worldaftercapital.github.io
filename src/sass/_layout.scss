@@ -4,8 +4,8 @@ $content-width: 58.75rem;
   @include clearfix;
   margin: 0 auto;
   max-width: $content-width;
-  width: 90%;
   position: relative;
+  width: 90%;
 }
 
 .main {
@@ -16,10 +16,10 @@ $content-width: 58.75rem;
 
 .colored-background {
   background-color: $blue;
-  position: fixed;
-  z-index: 1;
   height: 100%;
+  position: fixed;
   width: 100%;
+  z-index: 1;
 
   &.home, &.talks {
     transition: $t-to-page-bg;

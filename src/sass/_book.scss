@@ -9,8 +9,8 @@
 
   > .inner {
     background-color: $yellow;
-    box-shadow: 0 0 2.5rem rgba($black, 0.5);
     border-radius: 3px;
+    box-shadow: 0 0 2.5rem rgba($black, .5);
     display: block;
     height: 100%;
     padding-bottom: ($book-aspect-ratio *100%);
@@ -18,8 +18,7 @@
     width: 100%;
 
     &:after {
-      transform-origin: 0 0;
-      background-color: rgba($black, 0.1);
+      background-color: rgba($black, .1);
       content: ' ';
       display: block;
       height: 100%;
@@ -27,23 +26,25 @@
       position: absolute;
       top: 0;
       transform: $t-to-page-book;
+      transform-origin: 0 0;
       width: .5rem;
     }
 
-    .text-content {
-      color: $black;
-      left: 50%;
-      opacity: 1;
-      position: absolute;
-      text-align: center;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      transition: $t-to-page-book-text;
+  }
+}
 
-      .book-title {
-        margin-bottom: 2.5rem;
-      }
-    }
+.text-content {
+  color: $black;
+  left: 50%;
+  opacity: 1;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: $t-to-page-book-text;
+
+  .book-title {
+    margin-bottom: 2.5rem;
   }
 }
 
@@ -69,9 +70,10 @@
       transition: $t-to-page-book;
     }
 
-    .text-content {
-      transition: $t-to-page-book-text;
-    }
+  }
+
+  .text-content {
+    transition: $t-to-page-book-text;
   }
 
   .site-title {
@@ -89,9 +91,10 @@
       transition: $t-to-home-book;
     }
 
-    .text-content {
-      transition: $t-to-home-book-text;
-    }
+  }
+
+  .text-content {
+    transition: $t-to-home-book-text;
   }
 
   .site-title {

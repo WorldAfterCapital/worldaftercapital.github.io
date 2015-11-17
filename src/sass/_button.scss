@@ -9,7 +9,7 @@
 .button {
   @extend %h4;
   display: block;
-  transition: 0.2s ease color;
+  transition: .2s ease color;
 
   &.yellow {
     @include button-color($yellow);
@@ -30,8 +30,8 @@
   svg {
     display: inline-block;
     height: .875rem;
-    width: .875rem;
     line-height: 1rem;
+    width: .875rem;
   }
 
   &.right svg {

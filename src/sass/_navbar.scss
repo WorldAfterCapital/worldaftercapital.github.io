@@ -16,13 +16,14 @@ nav {
       margin-right: 2.5rem;
     }
 
-    a {
-      transition: 0.4s ease color;
-      animation: $a-fade-to-yellow;
+  }
 
-      &:active, &:hover, .selected {
-        color: $yellow;
-      }
+  a {
+    animation: $a-fade-to-yellow;
+    transition: .4s ease color;
+
+    &:active, &:hover, .selected {
+      color: $yellow;
     }
   }
 

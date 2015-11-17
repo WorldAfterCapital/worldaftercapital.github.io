@@ -11,64 +11,64 @@ $yt-aspect-ratio: .5625;
     position: relative;
 
     p {
-      margin-bottom: 2rem;
       animation: $a-fade-in-up;
+      margin-bottom: 2rem;
       transition: $t-to-home-page-content;
     }
 
     h2 {
+      animation: $a-fade-in;
       color: $white;
       margin-bottom: 6.25rem;
       margin-top: 2.5rem;
-      animation: $a-fade-in;
       transition: $t-to-home-page-content;
     }
   }
+}
 
-  .floating {
-    float: left;
-    width: 28.75rem;
-    padding: 0 6.25rem 5.625rem 0;
-    margin-left: -15rem;
-    animation: $a-fade-in-up;
-    transition: $t-to-home-page-content;
+.floating {
+  animation: $a-fade-in;
+  float: left;
+  margin-left: -15rem;
+  padding: 0 6.25rem 5.625rem 0;
+  position: relative;
+  transition: $t-to-home-floating;
+  width: 28.75rem;
+
+  i {
+    background-image: url('/img/albert-wenger.jpg');
+    background-position: center center;
+    background-size: cover;
+    box-shadow: 0 0 .625rem rgba($black, .5);
+    display: block;
+    height: 16.25rem;
+    width: 100%;
+  }
+
+  .video {
+    background-color: $black;
+    padding-bottom: (100% * $yt-aspect-ratio);
     position: relative;
+    width: 100%;
 
-    i {
-      background-image: url('/img/albert-wenger.jpg');
-      background-size: cover;
-      background-position: center center;
+    iframe {
       box-shadow: 0 0 .625rem rgba($black, .5);
-      display: block;
-      height: 16.25rem;
-      width: 100%;
-    }
-
-    .video {
-      background-color: $black;
-      padding-bottom: (100% * $yt-aspect-ratio);
-      width: 100%;
-      position: relative;
-
-      iframe {
-        box-shadow: 0 0 .625rem rgba($black, .5);
-        height: 100%;
-        left: 0;
-        position: absolute;
-        right: 10px;
-        top: 0;
-        width: 100%;
-      }
-    }
-
-    .links {
+      height: 100%;
+      left: 0;
       position: absolute;
-      display: block;
-      transform: translateY(100%);
+      right: 10px;
+      top: 0;
+      width: 100%;
+    }
+  }
 
-      li {
-        margin-bottom: 1.25rem;
-      }
+  .links {
+    display: block;
+    position: absolute;
+    transform: translateY(100%);
+
+    li {
+      margin-bottom: 1.25rem;
     }
   }
 }
@@ -77,11 +77,12 @@ $yt-aspect-ratio: .5625;
 .animating-to-talks-layout,
 .animating-to-home-layout {
   .main.page {
-    .floating, .page-content p {
-      transform: translateY(3rem);
+    .page-content p {
       opacity: 0;
+      transform: translateY(3rem);
     }
-    .page-content h2 {
+
+    .floating, .page-content h2 {
       opacity: 0;
     }
   }
