@@ -34,4 +34,16 @@ nav {
     }
   }
 
+  .read-link {
+    animation: $a-fade-in;
+    transition: $t-to-home-read-link;
+  }
+
+  &.active-home .read-link {
+    display: none;
+  }
+}
+
+.animating-to-home-layout .read-link {
+  opacity: 0;
 }

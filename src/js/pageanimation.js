@@ -30,16 +30,40 @@
     }
   }
 
+  function _scrollToTop(scrollDuration, cb) {
+    var scrollHeight = window.scrollY;
+    var scrollStep = Math.PI / (scrollDuration / 15);
+    var cosParameter = scrollHeight / 2;
+    var scrollCount = 0;
+    var scrollMargin;
+    requestAnimationFrame(step);
+
+    function step() {
+      setTimeout(function() {
+        if (window.scrollY !== 0) {
+          requestAnimationFrame(step);
+          scrollCount = scrollCount + 1;
+          scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
+          window.scrollTo(0, (scrollHeight - scrollMargin));
+        } else {
+          cb();
+        }
+      }, 15);
+    }
+  }
+
   function _getTargetPath(e) {
     var url;
     if (e.target.href) {
       url = e.target.href;
     }
+
     for (var i = 0; i < e.path.length; i++) {
       if (e.path[i].href) {
         url = e.path[i].href;
       }
     }
+
     var path = url.replace(window.location.origin, '');
     console.log(url, path);
     return path;
@@ -85,14 +109,14 @@
     console.log(path, this.reg, this.reg.test(path));
     if (!this.inAnimation && this.reg.test(path)) {
       this.inAnimation = true;
+      _scrollToTop(200, function() {
+        if (this.settings.beforeAnimate) {
+          this.settings.beforeAnimate();
+        }
 
-      if (this.settings.beforeAnimate) {
-        this.settings.beforeAnimate();
-      }
-
-      this.targetUrl = path;
-      this.body.className = this.bodyClass;
-      return;
+        this.targetUrl = path;
+        this.body.className = this.bodyClass;
+      }.bind(this));
     }
   };
 

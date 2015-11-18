@@ -9,37 +9,43 @@
 .button {
   @extend %h4;
   display: block;
-  transition: .2s ease color;
 
   &.yellow {
     @include button-color($yellow);
 
-    &:hover {
-      @include button-color($white);
-    }
   }
 
   &.blue {
     @include button-color($blue);
-
-    &:hover {
-      @include button-color($gray);
-    }
   }
+
 
   svg {
     display: inline-block;
     height: .875rem;
     line-height: 1rem;
     width: .875rem;
+    transition: .2s ease transform;
   }
 
-  &.right svg {
-    margin-left: 1rem;
+  &.right {
+    svg {
+      margin-left: 1rem;
+    }
+
+    &:hover svg {
+      transform: translateX(4px);
+    }
   }
 
-  &.left svg {
-    margin-right: 1rem;
-    transform: rotate(180deg);
+  &.left {
+    svg {
+      margin-right: 1rem;
+      transform: rotate(180deg);
+    }
+
+    &:hover svg {
+      transform: rotate(180deg) translateX(4px);
+    }
   }
 }
