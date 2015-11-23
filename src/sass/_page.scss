@@ -1,9 +1,5 @@
 $yt-aspect-ratio: .5625;
 
-.colored-background.page {
-  position: absolute;
-}
-
 .main.page {
 
   .page-content {
@@ -22,6 +18,10 @@ $yt-aspect-ratio: .5625;
       margin-bottom: 6.25rem;
       margin-top: 2.5rem;
       transition: $t-to-home-page-content;
+    }
+
+    > .links {
+      display: none;
     }
   }
 }
@@ -63,7 +63,7 @@ $yt-aspect-ratio: .5625;
     }
   }
 
-  .links {
+  > .links {
     display: block;
     position: absolute;
     transform: translateY(100%);
@@ -101,7 +101,8 @@ $yt-aspect-ratio: .5625;
       margin: 1.5rem 0;
     }
 
-    .links {
+    > .links {
+      display: block;
       position: relative;
       transform: none;
       padding-bottom: 3.5rem;
@@ -137,8 +138,7 @@ $yt-aspect-ratio: .5625;
       }
     }
 
-
-    .links {
+    > .links {
       display: none;
     }
 
