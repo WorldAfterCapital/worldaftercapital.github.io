@@ -1,6 +1,7 @@
 $yt-aspect-ratio: .5625;
 
 .main.page {
+  overflow: hidden;
 
   .page-content {
     padding: 6.875rem 5rem 0 15rem;
