@@ -13,6 +13,7 @@ $padding-top: 6rem;
   padding: $padding-top 0 5rem;
   position: relative;
   z-index: 2;
+  overflow: hidden;
 }
 
 .colored-background {
@@ -45,15 +46,21 @@ $padding-top: 6rem;
   transform: translatey(-100%) translateY($padding-top + 18.125rem);
 }
 
+@media screen and (max-width: $tablet-portrait-max) {
+  .main.home {
+    padding: 0;
+
+    .content {
+      padding: 0;
+      width: 100%;
+    }
+  }
+}
+
 @media screen and (max-width: $phone-landscape-max) {
   .content {
     padding: 0;
     width: 100%;
-  }
-
-  section {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
   }
 
   .main {

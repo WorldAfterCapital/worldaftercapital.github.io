@@ -100,7 +100,17 @@ $ham-height: (3 * $bar-height + 2 * $bar-spacing);
   opacity: 0;
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: $tablet-landscape-max) {
+  nav ul  {
+    padding-top: 0.25rem;
+
+    li {
+      margin-right: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-portrait-max) {
   .active-home {
     margin: 0;
     text-align: center;
@@ -129,7 +139,9 @@ $ham-height: (3 * $bar-height + 2 * $bar-spacing);
       display: none;
     }
   }
+}
 
+@media screen and (max-width: $phone-landscape-max) {
   nav:not(.active-home) {
     box-sizing: border-box;
     height: 6rem;

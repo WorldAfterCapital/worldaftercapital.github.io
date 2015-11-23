@@ -35,7 +35,21 @@ $book-aspect-ratio: 1.263157895;
   opacity: 0;
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: $tablet-landscape-max) {
+  .main.home {
+    .page-content {
+      padding-top: 2.5rem;
+
+      padding-right: 0;
+    }
+
+    .button {
+      margin-top: 2.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-portrait-max) {
   .main.home {
     .page-content {
       color: $gray;

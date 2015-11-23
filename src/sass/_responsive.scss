@@ -16,14 +16,18 @@
   }
 }
 
-@media screen and (max-width: $tablet-landscape-max) {
+@media screen and (max-width: $tablet-portrait-max) {
   html, body {
     font-size: 15px;
   }
+
+  .hide-tablet {
+    display: none;
+  }
 }
 
-@media screen and (min-width: $tablet-portrait-min) {
-  .mobile-only {
+@media screen and (min-width: $tablet-landscape-min) {
+  .tablet-only {
     display: none;
   }
 }
@@ -31,10 +35,6 @@
 @media screen and (max-width: $phone-landscape-max) {
   html, body {
     font-size: 14px;
-  }
-
-  .hide-mobile {
-    display: none;
   }
 }
 

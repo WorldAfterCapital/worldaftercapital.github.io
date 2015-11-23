@@ -54,6 +54,27 @@ $yt-aspect-ratio: .5625;
   transform: translateY(3rem);
 }
 
+@media screen and (max-width: $tablet-landscape-max) {
+  .main.talks .page-content {
+
+  }
+
+  .talk {
+    padding-bottom: (50% * $yt-aspect-ratio);
+
+    .video {
+      width: 40%;
+      padding-bottom: (40% * $yt-aspect-ratio);
+      padding-right: 1rem;
+    }
+    .text {
+      padding-left: 4rem;
+      padding-right: 0;
+      left: 40%;
+    }
+  }
+}
+
 @media screen and (max-width: $phone-landscape-max) {
   .main.talks .page-content {
     box-sizing: border-box;
@@ -73,10 +94,12 @@ $yt-aspect-ratio: .5625;
       display: block;
       position: relative;
       width: 100%;
+      padding-right: 0;
       padding-bottom: (100% * $yt-aspect-ratio);
     }
 
     .text {
+      padding-left: 0;
       position: relative;
       left: auto;
       padding: 0;

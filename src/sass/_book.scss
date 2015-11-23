@@ -149,7 +149,14 @@
   opacity: 0;
 }
 
-@media screen and (max-width: $phone-landscape-max) {
+@media screen and (max-width: $tablet-landscape-max) {
+  .site-title {
+    line-height: 2rem;
+    left: 4rem;
+  }
+}
+
+@media screen and (max-width: $tablet-portrait-max) {
   .home {
     .book {
       width: 60%;
@@ -171,15 +178,19 @@
       display: none;
     }
   }
+}
+
+@media screen and (max-width: $phone-landscape-max) {
   .page, .talks {
     .book {
-      position: relative;
+      display: inline-block;
       left: auto;
-      transform: none;
       margin: 0;
       padding: 0;
+      position: relative;
+      transform: none;
+      transition: none;
       width: 1.5rem;
-      display: inline-block;
 
       > .inner {
         width: 1.5rem;
