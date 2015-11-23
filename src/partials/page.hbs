@@ -6,7 +6,9 @@
         {{#block "navbar"}}{{/block}}
         <div class="page-content">
             <div class="floating" id="floating" >
-                {{#block "floating"}}{{/block}}
+                <div class="featured">
+                    {{#block "floating"}}{{/block}}
+                </div>
                 <ul class="links">
                     {{#block "links"}}{{/block}}
                 </ul>
@@ -14,6 +16,9 @@
             <h2>{{#block "title"}}{{/block}}</h2>
 
             {{#block "content"}}{{/block}}
+            <ul class="links">
+                {{#block "links"}}{{/block}}
+            </ul>
         </div>
     </div>
 </div>

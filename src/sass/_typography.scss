@@ -68,10 +68,17 @@ strong {
   }
 
   h2, %h2 {
+    font-size: 1.75rem;
+
     &.author {
       font-size: 1rem;
       letter-spacing: 0.8px;
     }
+  }
+
+  h3, %h3 {
+    font-size: 1.15rem;
+    line-height: 2rem;
   }
 
   h4, %h4 {

@@ -168,6 +168,7 @@ gulp.task('serve', ['build'], function() {
   browserSync.init(['./dist/**/*'], {
     server: {
       baseDir: './dist',
+      notify: false,
     },
   });
 

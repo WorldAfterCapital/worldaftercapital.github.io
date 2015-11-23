@@ -30,28 +30,6 @@
     }
   }
 
-  function _scrollToTop(scrollDuration, cb) {
-    var scrollHeight = window.scrollY;
-    var scrollStep = Math.PI / (scrollDuration / 15);
-    var cosParameter = scrollHeight / 2;
-    var scrollCount = 0;
-    var scrollMargin;
-    requestAnimationFrame(step);
-
-    function step() {
-      setTimeout(function() {
-        if (window.scrollY !== 0) {
-          requestAnimationFrame(step);
-          scrollCount = scrollCount + 1;
-          scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
-          window.scrollTo(0, (scrollHeight - scrollMargin));
-        } else {
-          cb();
-        }
-      }, 15);
-    }
-  }
-
   function _getTargetPath(e) {
     var url;
     if (e.target.href) {
@@ -69,12 +47,10 @@
     return path;
   }
 
-  function PageAnimation(urlRegex, finalElementId, bodyClass, options) {
-    var opts = options || {};
+  function PageAnimation(urlRegex, finalElementId, bodyClass, callbacks) {
 
-    this.settings = {
-      beforeAnimate: opts.beforeAnimate || null,
-      timeout: opts.timeout || 3000,
+    this.cb = {
+      shouldAnimate: callbacks.shouldAnimate || function() { return true; },
     };
 
     this.bodyClass = bodyClass;
@@ -98,21 +74,16 @@
 
   PageAnimation.prototype.onTransitionEnd = function(e) {
     if (this.inAnimation) {
-      console.log(e);
       window.location = this.targetUrl;
     }
   };
 
   PageAnimation.prototype.onClick = function(e) {
-    e.preventDefault();
     var path = _getTargetPath(e);
-    console.log(path, this.reg, this.reg.test(path));
-    if (!this.inAnimation && this.reg.test(path)) {
+    if (!this.inAnimation && this.reg.test(path) && this.cb.shouldAnimate()) {
+      e.preventDefault();
       this.inAnimation = true;
-      _scrollToTop(200, function() {
-        if (this.settings.beforeAnimate) {
-          this.settings.beforeAnimate();
-        }
+      PageAnimation.scrollToTop(200, function() {
 
         this.targetUrl = path;
         this.body.className = this.bodyClass;
@@ -138,6 +109,28 @@
     }
 
     this.finalElement.removeEventListener(this.transitionEndEvent, this.boundOnTransitionEnd);
+  };
+
+  PageAnimation.scrollToTop = function(scrollDuration, cb) {
+    var scrollHeight = window.scrollY;
+    var scrollStep = Math.PI / (scrollDuration / 15);
+    var cosParameter = scrollHeight / 2;
+    var scrollCount = 0;
+    var scrollMargin;
+    requestAnimationFrame(step);
+
+    function step() {
+      setTimeout(function() {
+        if (window.scrollY !== 0) {
+          requestAnimationFrame(step);
+          scrollCount = scrollCount + 1;
+          scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
+          window.scrollTo(0, (scrollHeight - scrollMargin));
+        } else {
+          cb();
+        }
+      }, 15);
+    }
   };
 
   if (typeof define === 'function' && define.amd) {

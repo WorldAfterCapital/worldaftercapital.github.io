@@ -30,6 +30,7 @@ $yt-aspect-ratio: .5625;
   animation: $a-fade-in;
   float: left;
   margin-left: -15rem;
+  max-width: 100%;
   padding: 0 6.25rem 5.625rem 0;
   position: relative;
   transition: $t-to-home-floating;
@@ -84,6 +85,69 @@ $yt-aspect-ratio: .5625;
 
     .floating, .page-content h2 {
       opacity: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-portrait-max) {
+  .main.page .page-content {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 1.5rem;
+    background-color: $white;
+
+    h2 {
+      color: $black;
+      margin: 1.5rem 0;
+    }
+
+    .links {
+      position: relative;
+      transform: none;
+      padding-bottom: 3.5rem;
+
+      li {
+        margin: 0;
+        &:not(:last-child) {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .floating {
+    padding: 0;
+    margin: 0;
+    float: none;
+    width: auto;
+
+    .featured {
+      position: relative;
+
+      &:before {
+        background-color: $blue;
+        content: ' ';
+        display: block;
+        height: 55%;
+        left: -1.5rem;
+        position: absolute;
+        top: -5%;
+        right: -1.5rem;
+        z-index: 1;
+      }
+    }
+
+
+    .links {
+      display: none;
+    }
+
+    i, .video {
+      width: 100%;
+      height: auto;
+      padding-bottom: (100% * $yt-aspect-ratio);
+      position: relative;
+      z-index: 2;
     }
   }
 }

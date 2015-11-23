@@ -53,3 +53,37 @@ $yt-aspect-ratio: .5625;
   opacity: 0;
   transform: translateY(3rem);
 }
+
+@media screen and (max-width: $phone-landscape-max) {
+  .main.talks .page-content {
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+    width: 100%;
+  }
+
+  .talk {
+    padding: 0;
+    margin-bottom: 3rem;
+
+    h2 {
+      margin: 1.5rem 0;
+    }
+
+    .video {
+      display: block;
+      position: relative;
+      width: 100%;
+      padding-bottom: (100% * $yt-aspect-ratio);
+    }
+
+    .text {
+      position: relative;
+      left: auto;
+      padding: 0;
+    }
+
+    .button {
+      margin-top: 1.5rem;
+    }
+  }
+}
