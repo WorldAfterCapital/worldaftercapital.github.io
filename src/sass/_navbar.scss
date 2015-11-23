@@ -1,3 +1,5 @@
+$m-link-padding: 1rem;
+
 nav {
   @extend %h5;
   box-sizing: border-box;
@@ -46,4 +48,35 @@ nav {
 
 .animating-to-home-layout .read-link {
   opacity: 0;
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  .active-home {
+    margin: 0;
+    text-align: center;
+    height: auto;
+
+    ul {
+      left: 0;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 3rem;
+      width: 100%;
+      z-index: 5;
+    }
+
+    li {
+      float: none;
+      margin-right: $m-link-padding;
+
+      &:first-child {
+        margin-left: (2 * $m-link-padding);
+      }
+    }
+
+    .read-link {
+      display: none;
+    }
+  }
 }

@@ -1,4 +1,5 @@
 $content-width: 58.75rem;
+$padding-top: 6rem;
 
 .content {
   @include clearfix;
@@ -9,7 +10,7 @@ $content-width: 58.75rem;
 }
 
 .main {
-  padding: 5rem 0;
+  padding: $padding-top 0 5rem;
   position: relative;
   z-index: 2;
 }
@@ -40,7 +41,7 @@ $content-width: 58.75rem;
 .animating-to-page-layout .colored-background.home,
 .animating-to-page-layout .colored-background.talks,
 .colored-background.page {
-  transform: translatey(-100%) translateY(23.125rem);
+  transform: translatey(-100%) translateY($padding-top + 18.125rem);
 }
 
 @media screen and (max-width: $phone-landscape-max) {
@@ -52,5 +53,9 @@ $content-width: 58.75rem;
   section {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+  }
+
+  .main {
+    padding: 0;
   }
 }
