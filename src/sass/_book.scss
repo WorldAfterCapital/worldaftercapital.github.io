@@ -58,6 +58,10 @@
   transition: $t-to-page-site-title;
   vertical-align: middle;
   z-index: 150;
+
+  a, a:hover {
+    color: $white;
+  }
 }
 
 // Transitions from home

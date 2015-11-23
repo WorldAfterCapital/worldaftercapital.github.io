@@ -17,10 +17,9 @@ nav {
       float: left;
       margin-right: 2.5rem;
     }
-
   }
 
-  a {
+  li a {
     animation: $a-fade-to-yellow;
     transition: .4s ease color;
 
