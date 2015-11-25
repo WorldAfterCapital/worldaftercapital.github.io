@@ -34,16 +34,15 @@
     var url;
     if (e.target.href) {
       url = e.target.href;
-    }
-
-    for (var i = 0; i < e.path.length; i++) {
-      if (e.path[i].href) {
-        url = e.path[i].href;
+    } else {
+      for (var i = 0; i < e.path.length; i++) {
+        if (e.path[i].href) {
+          url = e.path[i].href;
+        }
       }
     }
 
     var path = url.replace(window.location.origin, '');
-    console.log(url, path);
     return path;
   }
 
