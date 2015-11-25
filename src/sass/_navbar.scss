@@ -54,10 +54,10 @@ $ham-height: (3 * $bar-height + 2 * $bar-spacing);
   display: none;
   float: right;
   height: $ham-height;
+  margin-top: .5rem;
   position: relative;
   width: $bar-width;
   z-index: 150;
-  margin-top: 0.5rem;
 
   .bar {
     background-color: $white;
@@ -91,8 +91,8 @@ $ham-height: (3 * $bar-height + 2 * $bar-spacing);
   }
 
   .bar-3 {
-    transform: translateY(-$ham-height / 2 + 1px) rotate(-45deg);
     top: (2 * ($bar-height + $bar-spacing));
+    transform: translateY(-$ham-height / 2 + 1px) rotate(-45deg);
   }
 }
 
@@ -101,8 +101,8 @@ $ham-height: (3 * $bar-height + 2 * $bar-spacing);
 }
 
 @media screen and (max-width: $tablet-landscape-max) {
-  nav ul  {
-    padding-top: 0.25rem;
+  nav ul {
+    padding-top: .5rem;
 
     li {
       margin-right: 1.5rem;
@@ -112,9 +112,9 @@ $ham-height: (3 * $bar-height + 2 * $bar-spacing);
 
 @media screen and (max-width: $tablet-portrait-max) {
   .active-home {
+    height: auto;
     margin: 0;
     text-align: center;
-    height: auto;
 
     ul {
       left: 0;
@@ -139,40 +139,47 @@ $ham-height: (3 * $bar-height + 2 * $bar-spacing);
       display: none;
     }
   }
+
+  nav:not(.active-home) {
+    ul {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
 }
 
 @media screen and (max-width: $phone-landscape-max) {
   nav:not(.active-home) {
+    background-color: $blue;
     box-sizing: border-box;
     height: 6rem;
     padding: 2rem 1.5rem;
     position: relative;
-    background-color: $blue;
     z-index: 150;
 
     ul {
-      position: fixed;
-      top: 0;
+      background-color: $blue;
       bottom: 0;
       left: 0;
-      right: 0;
-      transition: $speed ease transform;
-      transform: translateY(-150%);
-      padding: 0;
       margin: 0;
-      background-color: $blue;
+      padding: 8rem 0 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      transform: translateY(-150%);
+      transition: $speed ease transform;
       z-index: 100;
-      padding-top: 8rem;
 
       li {
-        letter-spacing: 2.2px;
-        font-size: 2.5rem;
         display: block;
-        text-align: center;
-        margin: 0 0 2rem;
-        height: 3.75rem;
-        width: 100%;
         float: none;
+        font-size: 2.5rem;
+        height: 3.75rem;
+        letter-spacing: 2.2px;
+        margin: 0 0 2rem;
+        text-align: center;
+        width: 100%;
       }
     }
 

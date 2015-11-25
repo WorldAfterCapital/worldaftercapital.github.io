@@ -114,8 +114,8 @@ $yt-aspect-ratio: .5625;
 @media screen and (max-width: $tablet-portrait-max) {
   .main.page .page-content {
     box-sizing: border-box;
-    width: 100%;
     padding: 3rem 0;
+    width: 100%;
 
     h2 {
       color: $black;
@@ -124,12 +124,13 @@ $yt-aspect-ratio: .5625;
 
     > .links {
       display: block;
+      padding-bottom: 3.5rem;
       position: relative;
       transform: none;
-      padding-bottom: 3.5rem;
 
       li {
         margin: 0;
+
         &:not(:last-child) {
           margin-bottom: 1.5rem;
         }
@@ -138,9 +139,9 @@ $yt-aspect-ratio: .5625;
   }
 
   .floating {
-    padding: 0;
-    margin: 0;
     float: none;
+    margin: 0;
+    padding: 0;
     width: auto;
 
     .featured {
@@ -172,10 +173,10 @@ $yt-aspect-ratio: .5625;
     }
 
     i, .video {
-      width: 100%;
       height: auto;
       padding-bottom: (100% * $yt-aspect-ratio);
       position: relative;
+      width: 100%;
       z-index: 2;
     }
   }
@@ -183,7 +184,7 @@ $yt-aspect-ratio: .5625;
 
 @media screen and (max-width: $phone-landscape-max) {
   .main.page .page-content {
-    padding: 0 1.5rem;
     background-color: $white;
+    padding: 0 1.5rem;
   }
 }

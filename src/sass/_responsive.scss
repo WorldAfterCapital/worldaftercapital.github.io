@@ -1,6 +1,6 @@
 @media screen and (min-width: $xxl-desktop-min) {
   html, body {
-    font-size: 28px;
+    font-size: 20px;
   }
 }
 
@@ -46,12 +46,12 @@
 
 @media screen and (max-width: $flip-phone-max) {
   html, body {
-    font-size: 7px;
+    font-size: 12px;
   }
 }
 
 @media screen and (max-width: $super-ultra-tiny-flip-phone-max) {
   html, body {
-    font-size: 5px;
+    font-size: 10px;
   }
 }

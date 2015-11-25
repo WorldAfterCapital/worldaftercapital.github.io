@@ -38,9 +38,8 @@ $book-aspect-ratio: 1.263157895;
 @media screen and (max-width: $tablet-landscape-max) {
   .main.home {
     .page-content {
-      padding-top: 2.5rem;
-
       padding-right: 0;
+      padding-top: 2.5rem;
     }
 
     .button {
@@ -52,14 +51,14 @@ $book-aspect-ratio: 1.263157895;
 @media screen and (max-width: $tablet-portrait-max) {
   .main.home {
     .page-content {
-      color: $gray;
       background-color: $white;
-      width: 100%;
+      color: $gray;
       margin-left: 0;
       padding: 3rem 1.5rem;
+      width: 100%;
 
       .button {
-        margin-top: 0.75rem;
+        margin-top: .75rem;
       }
     }
 
@@ -68,8 +67,8 @@ $book-aspect-ratio: 1.263157895;
     }
 
     .begin-reading {
-      text-align: center;
       margin: 3rem 0;
+      text-align: center;
 
       .button {
         display: inline-block;

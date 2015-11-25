@@ -151,26 +151,26 @@
 
 @media screen and (max-width: $tablet-landscape-max) {
   .site-title {
-    line-height: 2rem;
     left: 4rem;
+    line-height: 2.75rem;
   }
 }
 
 @media screen and (max-width: $tablet-portrait-max) {
   .home {
     .book {
-      width: 60%;
       margin: 0 auto;
+      padding-right: 0;
+      padding-top: 6.75rem;
       position: relative;
       top: auto;
-      padding-top: 6.75rem;
-      padding-right: 0;
+      width: 60%;
       z-index: 1;
     }
 
     .text-content {
       .book-title {
-        margin-bottom: 1.66666666rem
+        margin-bottom: 1.66666666rem;
       }
     }
 
@@ -178,9 +178,7 @@
       display: none;
     }
   }
-}
 
-@media screen and (max-width: $phone-landscape-max) {
   .page, .talks {
     .book {
       display: inline-block;
@@ -190,16 +188,17 @@
       position: relative;
       transform: none;
       transition: none;
-      width: 1.5rem;
+      width: 2rem;
 
       > .inner {
-        width: 1.5rem;
-        padding-bottom: ($book-aspect-ratio * 1.5rem);
         border-radius: 1px;
+        box-shadow: 0 0 8px rgba($black, .5);
+        padding-bottom: ($book-aspect-ratio * 2rem);
+        width: 2rem;
 
         &:after {
-          transform: none;
           left: 4px;
+          transform: none;
           width: 1px;
         }
       }
@@ -207,12 +206,30 @@
 
     .site-title {
       display: inline-block;
+      left: auto;
+      line-height: 2.5rem;
+      margin-left: 1rem;
       position: relative;
       top: auto;
-      left: auto;
-      line-height: 2rem;
       vertical-align: top;
-      margin-left: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-landscape-max) {
+  .page, .talks {
+    .book {
+      width: 1.5rem;
+
+      > .inner {
+        padding-bottom: ($book-aspect-ratio * 1.5rem);
+        width: 1.5rem;
+
+      }
+    }
+
+    .site-title {
+      line-height: 2rem;
     }
   }
 }

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var MOBILE_WIDTH = 640;
+  var MOBILE_WIDTH = 768;
 
   var md = new MobileDetect(window.navigator.userAgent);
   if (md.mobile() === null) {

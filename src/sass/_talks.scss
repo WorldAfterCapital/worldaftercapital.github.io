@@ -56,22 +56,19 @@ $yt-aspect-ratio: .5625;
 }
 
 @media screen and (max-width: $tablet-landscape-max) {
-  .main.talks .page-content {
-
-  }
-
   .talk {
     padding-bottom: (50% * $yt-aspect-ratio);
 
     .video {
-      width: 40%;
       padding-bottom: (40% * $yt-aspect-ratio);
       padding-right: 1rem;
+      width: 40%;
     }
+
     .text {
+      left: 40%;
       padding-left: 4rem;
       padding-right: 0;
-      left: 40%;
     }
   }
 }
@@ -84,8 +81,8 @@ $yt-aspect-ratio: .5625;
   }
 
   .talk {
-    padding: 0;
     margin-bottom: 3rem;
+    padding: 0;
 
     h2 {
       margin: 1.5rem 0;
@@ -93,17 +90,17 @@ $yt-aspect-ratio: .5625;
 
     .video {
       display: block;
+      padding-bottom: (100% * $yt-aspect-ratio);
+      padding-right: 0;
       position: relative;
       width: 100%;
-      padding-right: 0;
-      padding-bottom: (100% * $yt-aspect-ratio);
     }
 
     .text {
-      padding-left: 0;
-      position: relative;
       left: auto;
       padding: 0;
+      padding-left: 0;
+      position: relative;
     }
 
     .button {
