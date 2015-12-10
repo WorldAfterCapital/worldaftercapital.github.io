@@ -1,4 +1,6 @@
-{{#extend "page" active-class="author"}}
+{{#extend "content-page" active-class="author"}}
+{{#content "title" mode="append" }} - Author{{/content}}
+{{#content "page-title" }}Albert Wenger{{/content}}
 
 {{#content "navbar" }}
 {{> navbar active-class="author" book-link="/" }}
@@ -10,8 +12,6 @@
 <li><a class="button right blue" href="http://continuations.com/">Personal Website {{> arrow-right.svg }}</a></li>
 <li><a class="button right blue" href="https://twitter.com/albertwenger">Twitter {{> arrow-right.svg }}</a></li>
 {{/content}}
-
-{{#content "title" }}Albert Wenger{{/content}}
 
 {{#content "content" mode="prepend"}}
 <p>Albert Wenger is a partner at Union Square Ventures (USV), a New York-based early stage VC firm focused on investing in disruptive networks. USV portfolio companies include: Twitter, Tumblr, Foursquare, Etsy, Kickstarter and Shapeways. His wife Susan Danziger co-founded and runs Ziggeo. Together, they have three wonderful children.</p>

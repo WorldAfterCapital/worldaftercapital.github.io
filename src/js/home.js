@@ -3,17 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var md = new MobileDetect(window.navigator.userAgent);
   if (md.mobile() === null) {
-    var homeAnimation = new PageAnimation(/^\/(author|talks|faq)\/?$/, 'bg', 'animating-to-page-layout', {
+    new PageAnimation({
       shouldAnimate: function() {
         return window.innerWidth > MOBILE_WIDTH;
       },
-
-    }).enable();
-    var talksAnimation = new PageAnimation(/^\/talks$/, 'book', 'animating-to-talks-layout', {
-      shouldAnimate: function() {
-        return window.innerWidth > MOBILE_WIDTH;
-      },
-
-    }).enable();
+    }).register(/^\/talks$/, 'book', 'animating-to-talks-layout')
+      .register(/^\/faq$/, 'bg', 'animating-to-faq-layout')
+      .register(/^\/author$/, 'bg', 'animating-to-author-layout')
+      .register(/^\/talks\/.+$/, 'bg', 'animating-to-talk-layout')
+      .enable();
   }
 });

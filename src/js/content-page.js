@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var MOBILE_WIDTH = 640;
+  var MOBILE_WIDTH = 768;
 
   var md = new MobileDetect(window.navigator.userAgent);
   if (md.mobile() === null) {
@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return window.innerWidth > MOBILE_WIDTH;
       },
     }).register(/^\/$/, 'book', 'animating-to-home-layout')
-      .register(/^\/faq$/, 'bg', 'animating-to-faq-layout')
-      .register(/^\/author$/, 'bg', 'animating-to-author-layout')
-      .register(/^\/talks\/.+$/, 'bg', 'animating-to-talk-layout')
+      .register(/^\/talks$/, 'bg', 'animating-to-talks-layout')
+      .register(/^\/faq$/, 'floating', 'animating-to-faq-layout')
+      .register(/^\/author$/, 'floating', 'animating-to-author-layout')
+      .register(/^\/talks\/.+$/, 'floating', 'animating-to-talk-layout')
       .enable();
   }
 });
-

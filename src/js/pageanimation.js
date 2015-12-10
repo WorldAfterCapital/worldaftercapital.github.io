@@ -1,9 +1,9 @@
 (function(global) {
   'use strict';
 
-  function AnimationException(message) {
+  function PageAnimationException(message) {
     this.message = message;
-    this.name = 'AnimationException';
+    this.name = 'PageAnimationException';
   }
 
   /**
@@ -46,30 +46,56 @@
     return path;
   }
 
-  function PageAnimation(urlRegex, finalElementId, bodyClass, callbacks) {
+  function PageAnimation(callbacks) {
 
     this.cb = {
       shouldAnimate: callbacks.shouldAnimate || function() { return true; },
     };
 
-    this.bodyClass = bodyClass;
-    this.finalElement = document.getElementById(finalElementId);
-    this.links = document.getElementsByTagName('a');
-    this.transitionEndEvent = _whichTransitionEndEvent();
-    this.inAnimation = false;
+    this.animations = {};
     this.body = document.getElementsByTagName('body')[0];
-    this.reg = new RegExp(urlRegex);
-
-    if (!this.finalElement) {
-      throw new AnimationException('No element with ID ' + finalElementId);
-    }
+    this.transitionEndEvent = _whichTransitionEndEvent();
+    this.links = document.getElementsByTagName('a');
+    this.inAnimation = false;
+    this.boundOnTransitionEnd = this.onTransitionEnd.bind(this);
+    this.boundOnClick = this.onClick.bind(this);
 
     if (this.links.length === 0) {
-      throw new AnimationException('No links found in page.');
+      throw new PageAnimationException('No links found in page.');
     }
 
     return this;
   }
+
+  PageAnimation.prototype.register = function(urlRegex, finalElementId, bodyClass) {
+    // Create the animation
+    var animation = {
+      bodyClass: bodyClass,
+      finalElement: document.getElementById(finalElementId),
+      regex: new RegExp(urlRegex),
+    };
+
+    // Error checking
+    if (!animation.finalElement) {
+      throw new PageAnimationException('No element with ID ' + finalElementId);
+    }
+
+    // Regsiter event listener and animation
+    this.animations[urlRegex] = animation;
+
+    return this;
+  };
+
+  PageAnimation.prototype.deregister = function(urlRegex) {
+    if (!this.animations[urlRegex]) {
+      throw new PageAnimationException('No animation registered with regex ' + urlRegex);
+    }
+
+    // Deregister the animation
+    delete this.animations[urlRegex];
+
+    return this;
+  };
 
   PageAnimation.prototype.onTransitionEnd = function(e) {
     if (this.inAnimation) {
@@ -77,37 +103,43 @@
     }
   };
 
+  PageAnimation.prototype.animate = function(animation, path) {
+    animation.finalElement.addEventListener(this.transitionEndEvent, this.boundOnTransitionEnd);
+    this.inAnimation = true;
+    PageAnimation.scrollToTop(200, function() {
+      this.targetUrl = path;
+      this.body.className = animation.bodyClass;
+    }.bind(this));
+  };
+
   PageAnimation.prototype.onClick = function(e) {
     var path = _getTargetPath(e);
-    if (!this.inAnimation && this.reg.test(path) && this.cb.shouldAnimate()) {
-      e.preventDefault();
-      this.inAnimation = true;
-      PageAnimation.scrollToTop(200, function() {
 
-        this.targetUrl = path;
-        this.body.className = this.bodyClass;
-      }.bind(this));
+    // Only animate if we are not in another animation, we should animate, and
+    // we're not just supposed to refresh the page.
+    if (!this.inAnimation &&
+        this.cb.shouldAnimate() &&
+        path !== window.location.pathname) {
+      for (var urlRegex in this.animations) {
+        if (this.animations.hasOwnProperty(urlRegex) && this.animations[urlRegex].regex.test(path)) {
+          e.preventDefault();
+          this.animate(this.animations[urlRegex], path);
+          return;
+        }
+      }
     }
   };
 
   PageAnimation.prototype.enable = function() {
-    // Click listeners
-    this.boundOnClick = this.onClick.bind(this);
     for (var i = 0; i < this.links.length; i++) {
       this.links[i].addEventListener('click', this.boundOnClick);
     }
-
-    // Transition end listener
-    this.boundOnTransitionEnd = this.onTransitionEnd.bind(this);
-    this.finalElement.addEventListener(this.transitionEndEvent, this.boundOnTransitionEnd);
   };
 
   PageAnimation.prototype.disable = function() {
     for (var i = 0; i < this.links.length; i++) {
       this.links[i].removeEventListener('click', this.boundOnClick);
     }
-
-    this.finalElement.removeEventListener(this.transitionEndEvent, this.boundOnTransitionEnd);
   };
 
   PageAnimation.scrollToTop = function(scrollDuration, cb) {

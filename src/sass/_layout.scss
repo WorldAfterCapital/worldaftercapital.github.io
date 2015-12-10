@@ -10,7 +10,16 @@ $padding-top: 6rem;
 }
 
 .main {
-  padding: $padding-top 0 8rem;
+  // scss-lint:disable DuplicateProperty ImportantRule
+  box-sizing: border-box;
+
+  // This is a hack to ensure that the footer stays on the bottom of the screen
+  height: auto !important;
+  height: 100%;
+
+  margin-bottom: -9rem;
+  min-height: 100%;
+  padding: $padding-top 0 17rem;
   position: relative;
   z-index: 2;
 }
@@ -39,8 +48,8 @@ $padding-top: 6rem;
   transform: none;
 }
 
-.animating-to-page-layout .colored-background.home,
-.animating-to-page-layout .colored-background.talks,
+%animating-to-page-layout .colored-background.home,
+%animating-to-page-layout .colored-background.talks,
 .colored-background.page {
   transform: translatey(-100%) translateY($padding-top + 18.125rem);
 }

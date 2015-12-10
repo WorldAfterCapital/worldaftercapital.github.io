@@ -1,4 +1,4 @@
-$yt-aspect-ratio: .5625;
+$yt-aspect-ratio: 0.5625;
 
 .main.page {
   overflow: hidden;
@@ -41,7 +41,7 @@ $yt-aspect-ratio: .5625;
     background-image: url('/img/albert-wenger.jpg');
     background-position: center center;
     background-size: cover;
-    box-shadow: 0 0 .625rem rgba($black, .5);
+    box-shadow: 0 0 0.625rem rgba($black, 0.5);
     display: block;
     height: 16.25rem;
     width: 100%;
@@ -54,7 +54,7 @@ $yt-aspect-ratio: .5625;
     width: 100%;
 
     iframe {
-      box-shadow: 0 0 .625rem rgba($black, .5);
+      box-shadow: 0 0 0.625rem rgba($black, 0.5);
       height: 100%;
       left: 0;
       position: absolute;
@@ -67,7 +67,7 @@ $yt-aspect-ratio: .5625;
   > .links {
     display: block;
     position: absolute;
-    transform: translateY(100%);
+    top: 100%;
 
     li {
       margin-bottom: 1.25rem;
@@ -75,7 +75,7 @@ $yt-aspect-ratio: .5625;
   }
 }
 
-.animating-to-page-layout,
+%animating-to-page-layout,
 .animating-to-talks-layout,
 .animating-to-home-layout {
   .main.page {

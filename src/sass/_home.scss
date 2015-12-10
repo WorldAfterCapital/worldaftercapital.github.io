@@ -31,7 +31,7 @@ $book-aspect-ratio: 1.263157895;
 }
 
 .animating-to-talks-layout .page-content p,
-.animating-to-page-layout .page-content p {
+%animating-to-page-layout .page-content p {
   opacity: 0;
 }
 
@@ -58,7 +58,7 @@ $book-aspect-ratio: 1.263157895;
       width: 100%;
 
       .button {
-        margin-top: .75rem;
+        margin-top: 0.75rem;
       }
     }
 

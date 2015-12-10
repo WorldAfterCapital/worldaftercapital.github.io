@@ -10,7 +10,7 @@ nav {
 
   ul {
     margin-left: 50%;
-    padding: .8125rem 0 .6875rem 5.625rem;
+    padding: 0.8125rem 0 0.6875rem 5.625rem;
 
     li {
       display: inline-block;
@@ -20,7 +20,7 @@ nav {
   }
 
   li a {
-    transition: .4s ease color;
+    transition: $speed ease color;
 
     &:active, &:hover {
       color: $yellow;
@@ -43,22 +43,23 @@ nav {
   }
 }
 
-
-
-.animating-to-page-layout, .animating-to-talks-layout, .animating-to-home-layout {
+%animating-to-page-layout, .animating-to-talks-layout, .animating-to-home-layout {
   // Highlight links
   @each $page in author, talks, faq, home {
     nav.active-#{$page} .#{$page}-link {
       color: $white;
     }
   }
-
-  .clicked {
-    color: $yellow;
-  }
 }
 
-.animating-to-page-layout {
+.animating-to-author-layout .author-link,
+.animating-to-talk-layout .talks-link,
+.animating-to-faq-layout .faq-link,
+.animating-to-talks-layout .talks-link {
+  color: $yellow;
+}
+
+%animating-to-page-layout {
   .active-home .read-link {
     opacity: 1;
   }
@@ -77,7 +78,7 @@ $ham-height: (3 * $bar-height + 2 * $bar-spacing);
   display: none;
   float: right;
   height: $ham-height;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   position: relative;
   width: $bar-width;
   z-index: 150;
@@ -121,7 +122,7 @@ $ham-height: (3 * $bar-height + 2 * $bar-spacing);
 
 @media screen and (max-width: $tablet-landscape-max) {
   nav ul {
-    padding-top: .5rem;
+    padding-top: 0.5rem;
 
     li {
       margin-right: 1.5rem;

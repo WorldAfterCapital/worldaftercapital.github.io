@@ -2,14 +2,14 @@ footer {
   animation: $a-fade-in-up-footer;
   background-color: rgba($black, 0.25);
   padding: 2.5rem 0;
-  position: relative;
+  position: absolute;
   transition: $t-to-page-footer;
   width: 100%;
   z-index: 10;
 
   p {
-    line-height: 2;
     color: rgba($black, 0.25);
+    line-height: 2;
   }
 
   .right {
@@ -23,7 +23,7 @@ footer {
   }
 }
 
-.animating-to-page-layout footer {
+%animating-to-page-layout footer {
   transform: translateY(100%);
 }
 

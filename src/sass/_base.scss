@@ -11,7 +11,7 @@ html, body {
 
   ::selection {
     // hack to fix opacity in selection.
-    background-color: rgba($yellow, .99);
+    background-color: rgba($yellow, 0.99);
     color: $black;
   }
 }

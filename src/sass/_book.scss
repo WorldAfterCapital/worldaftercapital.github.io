@@ -1,6 +1,6 @@
 .book {
   left: 0;
-  padding-right: .625rem;
+  padding-right: 0.625rem;
   position: absolute;
   top: 0;
   transform-origin: 0% 0%;
@@ -10,7 +10,7 @@
   > .inner {
     background-color: $yellow;
     border-radius: 3px;
-    box-shadow: 0 0 2.5rem rgba($black, .5);
+    box-shadow: 0 0 2.5rem rgba($black, 0.5);
     display: block;
     height: 100%;
     padding-bottom: ($book-aspect-ratio * 100%);
@@ -18,7 +18,7 @@
     width: 100%;
 
     &:after {
-      background-color: rgba($black, .1);
+      background-color: rgba($black, 0.1);
       content: ' ';
       display: block;
       height: 100%;
@@ -27,7 +27,7 @@
       top: 0;
       transform: $t-to-page-book;
       transform-origin: 0 0;
-      width: .5rem;
+      width: 0.5rem;
     }
 
   }
@@ -108,10 +108,10 @@
 
 // Animating to page
 .animating-to-talks-layout .home .book,
-.animating-to-page-layout .home .book,
+%animating-to-page-layout .home .book,
 .talks .book,
 .page .book {
-  transform: scale(.087);
+  transform: scale(0.087);
 
   > .inner:after {
     border-radius: 3px;
@@ -124,7 +124,7 @@
 }
 
 .animating-to-talks-layout .home .site-title,
-.animating-to-page-layout .home .site-title,
+%animating-to-page-layout .home .site-title,
 .talks .site-title,
 .page .site-title {
   opacity: 1;
@@ -192,7 +192,7 @@
 
       > .inner {
         border-radius: 1px;
-        box-shadow: 0 0 8px rgba($black, .5);
+        box-shadow: 0 0 8px rgba($black, 0.5);
         padding-bottom: ($book-aspect-ratio * 2rem);
         width: 2rem;
 

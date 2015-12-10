@@ -1,5 +1,5 @@
-$speed: .5s;
-$break: -.2s;
+$speed: 0.5s;
+$break: -0.2s;
 $t1: ($break + $speed);
 $t2: (2 * $t1);
 
@@ -67,4 +67,8 @@ $a-fade-to-yellow: fade-to-yellow $speed ease;
   100% {
     color: $yellow;
   }
+}
+
+.animating-to-faq-layout, .animating-to-author-layout, .animating-to-talk-layout {
+  @extend %animating-to-page-layout;
 }
