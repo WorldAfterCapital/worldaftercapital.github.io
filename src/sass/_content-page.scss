@@ -22,7 +22,14 @@ $yt-aspect-ratio: 0.5625;
     }
 
     > .links {
-      display: none;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 31rem; // Hack for 6-line height
+
+      li {
+        margin-bottom: 1.25rem;
+      }
     }
   }
 }
@@ -62,16 +69,6 @@ $yt-aspect-ratio: 0.5625;
       width: 100%;
     }
   }
-
-  > .links {
-    display: block;
-    position: absolute;
-    top: 100%;
-
-    li {
-      margin-bottom: 1.25rem;
-    }
-  }
 }
 
 %animating-to-page-layout,
@@ -86,6 +83,24 @@ $yt-aspect-ratio: 0.5625;
     .floating, .page-content h2 {
       opacity: 0;
     }
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .main.page .page-content > .links {
+    top: 28.75rem; // Hack for 5-line height
+  }
+}
+
+@media screen and (max-width: 879px) {
+  .main.page .page-content > .links {
+    top: 26.875rem; // Hack for 4-line height
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .main.page .page-content > .links {
+    top: 25rem; // Hack for 3-line height
   }
 }
 
@@ -126,6 +141,8 @@ $yt-aspect-ratio: 0.5625;
       padding-bottom: 3.5rem;
       position: relative;
       transform: none;
+      top: auto;
+      left: auto;
 
       li {
         margin: 0;
@@ -165,10 +182,6 @@ $yt-aspect-ratio: 0.5625;
         background-color: $white;
         bottom: -5%;
       }
-    }
-
-    > .links {
-      display: none;
     }
 
     i, .video {
