@@ -8,6 +8,12 @@ html, body {
   line-height: 1.5;
   position: relative;
   width: 100%;
+
+  ::selection {
+    // hack to fix opacity in selection.
+    background-color: rgba($yellow, .99);
+    color: $black;
+  }
 }
 
 a, a:hover {

@@ -1,0 +1,34 @@
+footer {
+  animation: $a-fade-in-up-footer;
+  background-color: rgba($black, 0.25);
+  padding: 2.5rem 0;
+  position: relative;
+  transition: $t-to-page-footer;
+  width: 100%;
+  z-index: 10;
+
+  p {
+    line-height: 2;
+    color: rgba($black, 0.25);
+  }
+
+  .right {
+    float: right;
+    padding: 1rem 5rem 1rem 0;
+
+    img {
+      display: block;
+      height: 2rem;
+    }
+  }
+}
+
+.animating-to-page-layout footer {
+  transform: translateY(100%);
+}
+
+@media screen and (max-width: $tablet-landscape-max) {
+  footer .right {
+    padding-right: 0;
+  }
+}

@@ -9,6 +9,7 @@ $t-to-page-page-content: $speed ease opacity;
 $t-to-page-bg: $speed $t1 ease transform;
 $t-to-page-site-title: $speed $t1 ease opacity;
 $t-to-page-floating: $speed ease opacity;
+$t-to-page-footer: $speed ease transform;
 
 $t-to-home-book: $speed $t2 ease transform;
 $t-to-home-book-text: $speed $t2 ease opacity;
@@ -21,6 +22,7 @@ $t-to-home-read-link: $speed ease opacity;
 
 $a-fade-in: fade-in $speed ease;
 $a-fade-in-up: fade-in-up $speed ease;
+$a-fade-in-up-footer: fade-in-up-footer $speed ease;
 $a-fade-to-yellow: fade-to-yellow $speed ease;
 
 @keyframes fade-in {
@@ -37,6 +39,18 @@ $a-fade-to-yellow: fade-to-yellow $speed ease;
   0% {
     opacity: 0;
     transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in-up-footer {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
   }
 
   100% {

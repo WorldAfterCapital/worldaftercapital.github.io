@@ -20,29 +20,52 @@ nav {
   }
 
   li a {
-    animation: $a-fade-to-yellow;
     transition: .4s ease color;
 
-    &:active, &:hover, .selected {
+    &:active, &:hover {
       color: $yellow;
     }
   }
 
   // Highlight links
-  @each $page in author, ideas, talks, faq, home {
+  @each $page in author, talks, faq, home {
     &.active-#{$page} .#{$page}-link {
       color: $yellow;
     }
   }
 
   .read-link {
-    animation: $a-fade-in;
     transition: $t-to-home-read-link;
   }
 
   &.active-home .read-link {
-    display: none;
+    opacity: 0;
   }
+}
+
+
+
+.animating-to-page-layout, .animating-to-talks-layout, .animating-to-home-layout {
+  // Highlight links
+  @each $page in author, talks, faq, home {
+    nav.active-#{$page} .#{$page}-link {
+      color: $white;
+    }
+  }
+
+  .clicked {
+    color: $yellow;
+  }
+}
+
+.animating-to-page-layout {
+  .active-home .read-link {
+    opacity: 1;
+  }
+}
+
+.animating-to-home-layout .read-link {
+  opacity: 0;
 }
 
 $bar-width: 20px;
@@ -94,10 +117,6 @@ $ham-height: (3 * $bar-height + 2 * $bar-spacing);
     top: (2 * ($bar-height + $bar-spacing));
     transform: translateY(-$ham-height / 2 + 1px) rotate(-45deg);
   }
-}
-
-.animating-to-home-layout .read-link {
-  opacity: 0;
 }
 
 @media screen and (max-width: $tablet-landscape-max) {

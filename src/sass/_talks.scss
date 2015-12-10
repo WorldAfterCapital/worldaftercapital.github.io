@@ -10,10 +10,13 @@ $yt-aspect-ratio: .5625;
 .talk {
   animation: $a-fade-in-up;
   color: $white;
-  margin-bottom: 5rem;
   padding-bottom: (50% * $yt-aspect-ratio);
   position: relative;
   transition: $t-to-home-page-content;
+
+  &:not(:last-child) {
+    margin-bottom: 5rem;
+  }
 
   .video {
     background-color: $black;
