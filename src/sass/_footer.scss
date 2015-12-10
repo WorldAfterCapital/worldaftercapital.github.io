@@ -28,7 +28,17 @@ footer {
 }
 
 @media screen and (max-width: $tablet-landscape-max) {
-  footer .right {
-    padding-right: 0;
+  .main.talks + footer {
+    background-color: rgba($black, 0.25);
+  }
+
+  footer {
+    box-sizing: border-box;
+    background-color: $light-gray;
+    padding: 2.5rem 1.5rem;
+
+    .right {
+      padding-right: 0;
+    }
   }
 }

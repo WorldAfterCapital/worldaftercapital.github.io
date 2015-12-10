@@ -55,13 +55,18 @@ $padding-top: 6rem;
 }
 
 @media screen and (max-width: $tablet-portrait-max) {
-  .main.home {
-    padding: 0;
+  .main {
+    padding-bottom: 9rem;
+  }
 
-    .content {
-      padding: 0;
-      width: 100%;
-    }
+  .main.home {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .main.home .content, footer .content {
+    padding: 0;
+    width: 100%;
   }
 }
 
@@ -72,7 +77,7 @@ $padding-top: 6rem;
   }
 
   .main {
-    padding: 0;
+    padding-top: 0;
   }
 
   .colored-background {
