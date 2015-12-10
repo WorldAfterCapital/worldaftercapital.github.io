@@ -37,7 +37,19 @@ h3, %h3 {
   letter-spacing: 1px;
 }
 
-h4, %h4 {
+h4 {
+  color: $gray;
+  font-family: $display;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  margin-bottom: 2.5rem;
+
+  &:not(:first-child) {
+    margin-top: 3.75rem;
+  }
+}
+
+h5, %h5 {
   font-family: $slab;
   font-size: 1rem;
   font-weight: $regular;
@@ -46,8 +58,8 @@ h4, %h4 {
   text-transform: uppercase;
 }
 
-h5, %h5 {
-  @extend %h4;
+h6, %h6 {
+  @extend %h5;
   font-weight: $thin;
   text-transform: none;
 }
@@ -75,7 +87,7 @@ strong {
     line-height: 2rem;
   }
 
-  h4, %h4 {
+  h5, %h5 {
     font-size: 1.15rem;
   }
 }
