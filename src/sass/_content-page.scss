@@ -23,8 +23,8 @@ $yt-aspect-ratio: 0.5625;
 
     > .links {
       display: block;
-      position: absolute;
       left: 0;
+      position: absolute;
       top: 31rem; // Hack for 6-line height
 
       li {
@@ -138,11 +138,11 @@ $yt-aspect-ratio: 0.5625;
 
     > .links {
       display: block;
+      left: auto;
       padding-bottom: 3.5rem;
       position: relative;
-      transform: none;
       top: auto;
-      left: auto;
+      transform: none;
 
       li {
         margin: 0;

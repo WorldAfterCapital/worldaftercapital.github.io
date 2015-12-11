@@ -10,6 +10,7 @@ footer {
   p {
     color: rgba($black, 0.25);
     line-height: 2;
+    margin: 0;
   }
 
   .right {
@@ -33,8 +34,8 @@ footer {
   }
 
   footer {
-    box-sizing: border-box;
     background-color: $light-gray;
+    box-sizing: border-box;
     padding: 2.5rem 1.5rem;
 
     .right {
