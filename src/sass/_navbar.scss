@@ -36,6 +36,10 @@ nav {
 
   .read-link {
     transition: $t-to-home-read-link;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &.active-home .read-link {
