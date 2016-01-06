@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
       },
     }).register(/^\/$/, 'book', 'animating-to-home-layout')
       .register(/^\/talks$/, 'bg', 'animating-to-talks-layout')
-      .register(/^\/faq$/, 'floating', 'animating-to-faq-layout')
-      .register(/^\/author$/, 'floating', 'animating-to-author-layout')
-      .register(/^\/talks\/.+$/, 'floating', 'animating-to-talk-layout')
+      .register(/^\/faq$/, 'page-title', 'animating-to-faq-layout')
+      .register(/^\/author$/, 'page-title', 'animating-to-author-layout')
+      .register(/^\/talks\/.+$/, 'page-title', 'animating-to-talk-layout')
       .enable();
   }
 });

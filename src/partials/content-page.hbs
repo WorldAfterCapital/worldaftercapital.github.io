@@ -5,12 +5,15 @@
     <div class="content">
         {{#block "navbar"}}{{/block}}
         <div class="page-content">
-            <div class="floating" id="floating" >
+            {{#if hideFloating }}
+            {{else}}
+            <div class="floating">
                 <div class="featured">
                     {{#block "floating"}}{{/block}}
                 </div>
             </div>
-            <h2>{{#block "page-title"}}{{/block}}</h2>
+            {{/if}}
+            <h2 id="page-title">{{#block "page-title"}}{{/block}}</h2>
             <article>
             {{#block "content"}}{{/block}}
             </article>

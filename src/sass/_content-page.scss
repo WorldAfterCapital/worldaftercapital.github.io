@@ -75,7 +75,7 @@ $yt-aspect-ratio: 0.5625;
 .animating-to-talks-layout,
 .animating-to-home-layout {
   .main.page {
-    .page-content article {
+    .page-content article, .links {
       opacity: 0;
       transform: translateY(3rem);
     }
