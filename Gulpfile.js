@@ -5,6 +5,7 @@ var browserSync = require('browser-sync').create();
 var cache = require('gulp-cached');
 var concat = require('gulp-concat');
 var fs = require('fs');
+var ghPages = require('gulp-gh-pages');
 var gulp = require('gulp');
 var handlebars = require('gulp-compile-handlebars');
 var imagemin = require('gulp-imagemin');
@@ -154,6 +155,13 @@ gulp.task('build', ['sass', 'images', 'fonts', 'js', 'templates']);
 gulp.task('build:optimized', ['sass:optimized', 'images:optimized', 'fonts', 'js:optimized', 'templates:optimized']);
 
 gulp.task('deploy', ['build:optimized'], function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages({
+      branch: "master"
+    }));
+});
+
+gulp.task('deploy:minimill', ['build:optimized'], function() {
   gulp.src('')
     .pipe(shell('scp -r dist/* root@minimill.co:/srv/work/private_html/worldaftercapital/'))
     .on('finish', function() {
