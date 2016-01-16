@@ -13,7 +13,10 @@ npm install -g gulp  # May require `sudo`
 
 ## Developing
 
+In your local worldaftercapital.github.io directory
+
 ```
+npm install gulp --save-dev
 npm install
 gem install scss_lint
 gulp serve
