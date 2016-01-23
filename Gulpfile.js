@@ -157,7 +157,7 @@ gulp.task('build:optimized', ['sass:optimized', 'images:optimized', 'fonts', 'js
 gulp.task('deploy', ['build:optimized'], function() {
   return gulp.src('./dist/**/*')
     .pipe(ghPages({
-      branch: "master"
+      branch: 'master',
     }));
 });
 

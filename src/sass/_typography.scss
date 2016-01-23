@@ -1,4 +1,5 @@
 // Font weights
+$bold: 700;
 $regular: 400;
 $thin: 300;
 
@@ -64,18 +65,57 @@ h6, %h6 {
   text-transform: none;
 }
 
-p, .p {
+p, %p {
   font-size: 1rem;
   line-height: 2;
-
-  + p {
-    margin-top: 2rem;
-  }
 }
 
 strong {
   font-weight: $regular;
 }
+
+article {
+  strong {
+    font-weight: $bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  a {
+    transition: 0.2s ease color;
+    text-decoration: underline;
+
+    &:hover {
+      color: $blue;
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  ul, ol {
+    padding-left: 2rem;
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  p, ol, ul {
+    + p, + ol, + ul {
+      margin-top: 2rem;
+    }
+  }
+}
+
 
 @media screen and (max-width: $phone-landscape-max) {
   h1, %h1 {
