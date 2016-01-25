@@ -61,6 +61,12 @@ gulp.task('sass:optimized', function() {
 
 gulp.task('sass', ['sass:lint', 'sass:build']);
 
+gulp.task('CNAME', function() {
+  gulp.src('src/CNAME')
+    .pipe(plumber())
+    .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('js:build', function() {
   gulp.src('src/js/**/*.js')
     .pipe(plumber())
@@ -152,7 +158,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('build', ['sass', 'images', 'fonts', 'js', 'templates']);
-gulp.task('build:optimized', ['sass:optimized', 'images:optimized', 'fonts', 'js:optimized', 'templates:optimized']);
+gulp.task('build:optimized', ['CNAME', 'sass:optimized', 'images:optimized', 'fonts', 'js:optimized', 'templates:optimized']);
 
 gulp.task('deploy', ['build:optimized'], function() {
   return gulp.src('./dist/**/*')
